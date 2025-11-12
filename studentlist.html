@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registered Students</title>
+    <link rel="stylesheet" href="style5.css">
+</head>
+<body>
+  <!--  <scrip>
+if (localStorage.getItem("loggedIn") !== "yes") {
+    window.location.href = "login.html";
+}
+</script> -->
+
+
+<nav>
+    <ul>
+        <li><a href="home2.html">Home</a></li>
+        <li><a href="register2.html">Register</a></li>
+        <li><a href="studentlist.html">Students</a></li>
+         <li><a href="about2.html">About</a></li>
+        <li><a href="contact2.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li style="margin-left:auto;">
+    <button id="modeBtn" onclick="toggleMode()" 
+    style="padding:8px 15px; border:none; border-radius:5px; cursor:pointer;">
+        Dark Mode
+    </button>
+</li>
+
+    </ul>
+</nav>
+
+<div class="container">
+    <h1>Smart Onlin Registration</h1>
+
+<input type="text" id="search" placeholder="Search student..." 
+style="width:100%; padding:10px; margin-bottom:15px;"
+onkeyup="filterStudents()">
+<button onclick="window.print()" 
+style="margin-bottom:15px; padding:10px 20px; background:#1f5bd8; color:white; border:none; border-radius:5px; cursor:pointer;">
+    Print List
+</button>
+
+
+    <table border="1" width="100%" cellpadding="10">
+        <thead>
+    <tr>
+        <th onclick="sortTable(0)">Name </th>
+        <th onclick="sortTable(1)">Gender </th>
+        <th onclick="sortTable(2)">DOB </th>
+        <th onclick="sortTable(3)">Grade </th>
+        <th onclick="sortTable(4)">Phone </th>
+    </tr>
+</thead>
+
+        <tbody id="studentTable"></tbody>
+    </table>
+</div>
+<!--
+
+<scrip>
+    const students = JSON.parse(localStorage.getItem("students")) || [];
+    const table = document.getElementById("studentTable");
+
+    students.forEach(s => {
+        table.innerHTML += `
+            <tr>
+                <td>${s.fullname}</td>
+                <td>${s.gender}</td>
+                <td>${s.dob}</td>
+                <td>${s.grade}</td>
+                <td>${s.phone}</td>
+            </tr>
+        `;
+    });
+</script>
+-->
+
+<script>
+function toggleMode() {
+    document.body.classList.toggle("dark");
+
+    // Save preference
+    if (document.body.classList.contains("dark")) {
+        localStorage.setItem("mode", "dark");
+        document.getElementById("modeBtn").textContent = "Light Mode";
+    } else {
+        localStorage.setItem("mode", "light");
+        document.getElementById("modeBtn").textContent = "Dark Mode";
+    }
+}
+
+// Load saved mode
+window.onload = () => {
+    if (localStorage.getItem("mode") === "dark") {
+        document.body.classList.add("dark");
+        document.getElementById("modeBtn").textContent = "Light Mode";
+    }
+};
+</script>
+<footer>
+   
+    <nav>
+    <ul>
+       <li><a href="home2.html">Home</a></li>
+        <li><a href="register2.html">Register</a></li>
+        <li><a href="studentlist.html">Students</a></li>
+         <li><a href="about2.html">About</a></li>
+        <li><a href="contact2.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li style="margin-left:auto;">
+    <button id="modeBtn" onclick="toggleMode()" 
+    style="padding:8px 15px; border:none; border-radius:5px; cursor:pointer;">
+        Dark Mode
+    </button>
+</li>
+
+
+
+    </ul>
+</nav>
+ © 2025 Jabir Adem-Smart Online Registration System<br>
+ Tel:0914260968<br>
+ Email:jabiradem3210@gmail.com
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Onlin Registration System</title>
+    <link rel="stylesheet" href="style5.css">
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="home2.html">Home</a></li>
+        <li><a href="register2.html">Register</a></li>
+        <li><a href="studentlist.html">Students</a></li>
+         <li><a href="about2.html">About</a></li>
+        <li><a href="contact2.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li style="margin-left:auto;">
+    <button id="modeBtn" onclick="toggleMode()" 
+    style="padding:8px 15px; border:none; border-radius:5px; cursor:pointer;">
+        Dark Mode
+    </button>
+</li>
+
+
+    </ul>
+</nav>
+
+<div class="container">
+    <h1>Register a Student</h1>
+
+    <form id="regForm" onsubmit="saveStudent(event)">
+    <label>Full Name</label>
+    <input id="fullname" type="text" required>
+
+    <label>Gender</label>
+    <select id="gender">
+        <option>Male</option>
+        <option>Female</option>
+    </select>
+
+    <label>Date of Birth</label>
+    <input id="dob" type="date" required>
+
+    <label>Grade</label>
+    <select id="grade" required>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+    </select>
+
+    <label>Parent Phone</label>
+    <input id="phone" type="tel" required>
+
+    <button type="submit">Register</button>
+</form>
+
+<script src="Script.js"></script>
+
+</div>
+
+<script>
+function toggleMode() {
+    document.body.classList.toggle("dark");
+
+    // Save preference
+    if (document.body.classList.contains("dark")) {
+        localStorage.setItem("mode", "dark");
+        document.getElementById("modeBtn").textContent = "Light Mode";
+    } else {
+        localStorage.setItem("mode", "light");
+        document.getElementById("modeBtn").textContent = "Dark Mode";
+    }
+}
+
+// Load saved mode
+window.onload = () => {
+    if (localStorage.getItem("mode") === "dark") {
+        document.body.classList.add("dark");
+        document.getElementById("modeBtn").textContent = "Light Mode";
+    }
+};
+</script>
+<footer>
+   
+    <nav>
+    <ul>
+       <li><a href="home2.html">Home</a></li>
+        <li><a href="register2.html">Register</a></li>
+        <li><a href="studentlist.html">Students</a></li>
+         <li><a href="about2.html">About</a></li>
+        <li><a href="contact2.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li style="margin-left:auto;">
+    <button id="modeBtn" onclick="toggleMode()" 
+    style="padding:8px 15px; border:none; border-radius:5px; cursor:pointer;">
+        Dark Mode
+    </button>
+</li>
+
+
+
+    </ul>
+</nav>
+ © 2025 Jabir Adem-Smart Online Registration System<br>
+ Tel:0914260968<br>
+ Email:jabiradem3210@gmail.com
+</footer>
+</body>
+</html>
